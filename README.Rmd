@@ -81,10 +81,13 @@ Effect size is a standardized way to report the strength of an apparent relation
 Here are some examples of `cohens_d` and `cohens_plot`:
 
 ```{r example}
-library(powerPsych)
-# calculate Cohen's d statistic:
-cohens_d(0, 0.35, 0.5, 0.6, sd = "diff")
-cohens_d(0, -0.35, 0.5, sd = "same")
+#library(powerPsych)
+
+# cohens_d(0, 0.35, 0.5, 0.6, sd = "diff")
+# Cohen's d is 0.634 which is considered to be medium effect size.
+
+# cohens_d(0, -0.35, 0.5, sd = "same")
+# Cohen's d is 0.7 which is considered to be a relatively small effect size.
 ```
 
 **Note:** Effect sizes are computed ussing the methods outlined in the paper ""Olejnik, S. & Algina, J. 2003. Generalized Eta and Omega Squared Statistics: Measures of Effect Size for Some Common Research Designs *Psychological Methods. 8:(4)434-447"*.
@@ -93,10 +96,10 @@ cohens_d(0, -0.35, 0.5, sd = "same")
 Here I will describe the workflow for building this package.
 
 1. I loaded the `devtools` package and created a new package called powerPsych
-*`devtools::create_package("powerPsych)`
+* `devtools::create_package("powerPsych)`
 
 2. Initialized the package repo
-*`use_git()`
+* `use_git()`
 
 3. Created my R script for `cohens_d`
 * `use_r("cohens_d")`
@@ -112,8 +115,9 @@ Here I will describe the workflow for building this package.
 * `build_readme()`
 
 7. created my vignettes and built it
-* `use_vignette("cohens_d)`
+* `use_vignette("cohens_d")`
 * `build_vignette()`
+
 ## Statistical power
 
 I will build upon this package for the final assignment for STAT 545B. I plan on having a t-test calculator and a F-test calculator.
