@@ -1,0 +1,49 @@
+---
+title: "cohens_d"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{cohens_d}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(powerPsych)
+```
+
+## Examples 
+
+An effect size is a standardized way to report the **strength** of an apparent relationship. If you are comparing two populations/group, you can use this function to compute the effect size of the difference between the two means. Typically, Cohen's d is categorized as follows: 
+
+| cohen's d | Interpretation  |
+|-----------|-----------------|
+| 0.2       | A small effect  |
+| 0.5       | A medium effect |
+| 0.8+      | A large effect  |
+
+`cohens_d` consumes the mean and standard deviation of the two samples to generate a statistic and interpretation. If the standard deviation is the same, type `sd = same` and only enter the one standard deviation. Entering two standard deviations will result in the function ignoring the second input. At this point, the function will use the pooled standard deviation. Here is an example for `sd = same`:   
+```{r}
+# same sd
+cohens_d(0, 1, 0.54, sd = "same")
+
+#when you input 2 standard deviations
+cohens_d(0, 1, 0.54, 0.6, sd = "same")
+```
+
+When the standard deviation are different, enter two inputs and type `sd = diff`. If the user enters only input, there is an expected error message that prompts the user to add the second input. Here are some examples: 
+```{r}
+# different sd
+cohens_d(0, 1, 0.54, 0.6, sd = "diff")
+
+# expected error when only sd is entered and if user indicated "diff"
+# cohens_d(0, 1, 0.54, sd = "diff")
+# If the standard deviation of the groups are different, you must enter a value for sd.two
+```
+

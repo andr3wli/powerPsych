@@ -1,0 +1,130 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# powerPsych <img src="man/figures/logo.png" align="right" height=230/>
+
+<!-- badges: start -->
+![](https://img.shields.io/badge/AndrewLi-STAT545-green)
+[![Lifecycle: questioning](https://img.shields.io/badge/lifecycle-questioning-blue.svg)](https://www.tidyverse.org/lifecycle/#questioning)
+<!-- badges: end -->
+```{r echo = FALSE, eval = FALSE}
+library(magick)
+library(showtext)
+library(hexSticker)
+font_add_google("Cutive Mono", "gf")
+```
+
+
+```{r echo = FALSE, eval = FALSE}
+img <- image_read("man/figures/power.png")
+ logo <- hexSticker::sticker(subplot  = img,
+                    s_x      = 1,
+                    s_y      = 1,
+                    s_width  = 2,
+                    s_height = 2,
+                    package  = "powerPsych",
+                    p_x      = 1,
+                    p_y      = 1,
+                    p_color  = "#223344",
+                    p_family = "gf",
+                    p_size   = 5,
+                    h_size   = 1.2,
+                    h_fill   = "#ffffff",
+                    h_color  = "#223344",
+                    filename = "man/figures/logo.png")
+image_read("man/figures/logo.png")
+```
+
+
+The goal of `powerPsych` is to provide behavioral scientists a package to calculate and understand effect size and power. `powerPsych` is a collection of statistical analysis tools, visualization, and calculator that are useful for research. This package is separated by three main analysis:
+
+1. Effect size
+2. Statistical power
+3. Sample size calculator
+
+This package was built for my STAT 545B course at the University of British Columbia. I built this package based [this](https://www.ai-therapy.com) website's calculations. Admittedly, their website is much easier to use but here I offer an alternative for people that prefer typesetting. 
+
+## Installation
+
+`powerPsych` is not on CRAN, you need to install it via [GitHub]():
+
+``` r
+install.github("andr3wli/powerPsych")
+```
+
+## Effect size
+
+Effect size is a standardized way to report the strength of an apparent relationship. This part of the package dives into *Cohen's d*. Cohen's d is very popular in psychology. `cohen.d` is a function that exists already that computes the Cohen's d and Hedge's effect size statistic. I offer two new functions to help calculate and interpret this statistic. Cohen's d can be categorized as follows:
+
+| cohen's d | Interpretation  |
+|-----------|-----------------|
+| 0.2       | A small effect  |
+| 0.5       | A medium effect |
+| 0.8+      | A large effect  |
+
+* `cohens_d` is a calculator that compares two populations/groups effect size via the two means. `cohens_d` consumes the mean and standard deviation of of two groups and it calculates the statistic and informs the user of the effect size. 
+
+* `cohens_plot` is a visualization tool to help aid the interpretation of Cohen's d.  
+
+Here are some examples of `cohens_d` and `cohens_plot`:
+
+```{r example}
+library(powerPsych)
+# calculate Cohen's d statistic:
+cohens_d(0, 0.35, 0.5, 0.6, sd = "diff")
+cohens_d(0, -0.35, 0.5, sd = "same")
+```
+
+**Note:** Effect sizes are computed ussing the methods outlined in the paper ""Olejnik, S. & Algina, J. 2003. Generalized Eta and Omega Squared Statistics: Measures of Effect Size for Some Common Research Designs *Psychological Methods. 8:(4)434-447"*.
+
+## Workflow
+Here I will describe the workflow for building this package.
+
+1. I loaded the `devtools` package and created a new package called powerPsych
+*`devtools::create_package("powerPsych)`
+
+2. Initialized the package repo
+*`use_git()`
+
+3. Created my R script for `cohens_d`
+* `use_r("cohens_d")`
+
+4. Used Roxygen2 to create the documents and to export them
+
+5. Created my tests for the function
+* `use_testthat()`
+* `use_test(cohens_d)`
+
+6. Created a README and rendered the R markdown file to a regualr markdown file
+* `use_readme_rmd`
+* `build_readme()`
+
+7. created my vignettes and built it
+* `use_vignette("cohens_d)`
+* `build_vignette()`
+## Statistical power
+
+I will build upon this package for the final assignment for STAT 545B. I plan on having a t-test calculator and a F-test calculator.
+
+## Sample size 
+
+I will build upon this package for the final assignment for STAT 545B. I plan on creating a function that can inform researchers the sample size needed so that the experiment has sufficient statistical power.
+
+## Acknowledgement
+The STAT 545B teaching team deserves a huge amount of credit for teaching this course so wonderfully! Thank you to our prof [Vincenzo Coia](https://vincenzocoia.com) and our wonderful TAs [Almas Khan](), [Diana Lin](http://www.birollab.ca/member/dlin), [Icíar Fernández Boyano](), and [Victor Yuan]().
+
+## Code of Conduct
+
+Please note that the powerPsych project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

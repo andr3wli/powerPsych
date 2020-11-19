@@ -1,2 +1,7 @@
 ^powerPsych\.Rproj$
 ^\.Rproj\.user$
+^LICENSE\.md$
+^README\.Rmd$
+^doc$
+^Meta$
+^CODE_OF_CONDUCT\.md$

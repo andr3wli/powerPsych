@@ -1,16 +1,20 @@
 Package: powerPsych
-Title: What the Package Does (One Line, Title Case)
+Title: Effect Size and Power Toolbox for Psychologists 
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Andrew",
+           family = "Li",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "andrew-li@alumni.ubc.ca",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+Description: This R package was developed for my STAT 545B course ath The University of British Columbia. This package has many tools that psychology researchers use. It has a calculator for effect size, power, sample size, and Cohen's d. Furthermore, it allows users to visualize Cohen's d.  
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
