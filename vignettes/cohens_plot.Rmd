@@ -1,0 +1,32 @@
+---
+title: "Cohens plot"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{cohens_plot}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Here I present `cohens_plot` as a friend for `cohens_d`. This function is to help aid the interpretation of Cohen's d statistic. This is a really useful function for users to be able visualize the overlap of groups. Simply type in 2 means and 2 standard deviations and a plot will be generated to show the overlap. The default is set so that the over lap is shaded but if you want, you can set `overlap = F` for no overlap. 
+
+The `ggplot2`package is used under the hood to produce the plots. `theme_void()` is used to produce the minimalist plot. 
+
+To produce a plot, simply fill in 4 arguments. Note that overlap is set as the default. You can set it to false for a plot without overlap
+```{r}
+library(powerPsych)
+cohens_plot(0, 1, 0.5, 0.5)
+```
+To produce a plot without any overlap: 
+```{r}
+cohens_plot(0, 1, 0.5, 0.5, overlap = F)
+```
+
+
+

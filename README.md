@@ -54,21 +54,34 @@ Cohen’s d can be categorized as follows:
     and informs the user of the effect size.
 
   - `cohens_plot` is a visualization tool to help aid the interpretation
-    of Cohen’s d. 
+    of Cohen’s d value.
 
-Here are some examples of `cohens_d` and `cohens_plot`:
+### Here are some examples of `cohens_d`:
 
 ``` r
-#library(powerPsych)
+library(powerPsych)
 
-# cohens_d(0, 0.35, 0.5, 0.6, sd = "diff")
-# Cohen's d is 0.634 which is considered to be medium effect size.
-
-# cohens_d(0, -0.35, 0.5, sd = "same")
-# Cohen's d is 0.7 which is considered to be a relatively small effect size.
+cohens_d(0, 0.35, 0.5, 0.6, sd = "diff")
+#> Cohen's d is 0.634 which is considered to be medium effect size.
+cohens_d(0, -0.35, 0.5, sd = "same")
+#> Cohen's d is 0.7 which is considered to be a relatively small effect size.
 ```
 
-**Note:** Effect sizes are computed ussing the methods outlined in the
+### Here are some examples of `cohens_plot`:
+
+``` r
+cohens_plot(0, 1, 0.5, 0.5)
+```
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+``` r
+cohens_plot(0, 1, 0.56, 0.5, overlap = F)
+```
+
+<img src="man/figures/README-unnamed-chunk-4-2.png" width="100%" />
+
+**Note:** Effect sizes are computed using the methods outlined in the
 paper ""Olejnik, S. & Algina, J. 2003. Generalized Eta and Omega Squared
 Statistics: Measures of Effect Size for Some Common Research Designs
 *Psychological Methods. 8:(4)434-447"*.
