@@ -30,7 +30,7 @@ people that prefer typesetting.
 `powerPsych` is not on CRAN, you need to install it via [GitHub]():
 
 ``` r
-devtools::install.github("andr3wli/powerPsych")
+devtools::install_github("andr3wli/powerPsych")
 ```
 
 ## Effect size
@@ -43,22 +43,23 @@ offer two new functions to help calculate and interpret this statistic.
 Cohen’s d can be categorized as follows:
 
 | cohen’s d | Interpretation  |
-| --------- | --------------- |
+|-----------|-----------------|
 | 0.2       | A small effect  |
 | 0.5       | A medium effect |
 | 0.8+      | A large effect  |
 
-  - `cohens_d` is a calculator that compares two populations/groups
+-   `cohens_d` is a calculator that compares two populations/groups
     effect size via the two means. `cohens_d` consumes the mean and
     standard deviation of of two groups and it calculates the statistic
     and informs the user of the effect size.
 
-  - `cohens_plot` is a visualization tool to help aid the interpretation
+-   `cohens_plot` is a visualization tool to help aid the interpretation
     of Cohen’s d value.
 
 ### Here are some examples of `cohens_d`:
 
 ``` r
+# New function!
 library(powerPsych)
 
 cohens_d(mean.one = 0, mean.two = 0.35, sd.one = 0.5, sd.two = 0.6, sd = "diff")
@@ -93,55 +94,33 @@ Here I will describe the workflow for building this package.
 1.  I loaded the `devtools` package and created a new package called
     powerPsych
 
-<!-- end list -->
+-   `devtools::create_package("powerPsych)`
 
-  - `devtools::create_package("powerPsych)`
+1.  Initialized the package repo
 
-<!-- end list -->
+-   `use_git()`
 
-2.  Initialized the package repo
+1.  Created my R script for `cohens_d`
 
-<!-- end list -->
+-   `use_r("cohens_d")`
 
-  - `use_git()`
+1.  Used Roxygen2 to create the documents and to export them
 
-<!-- end list -->
+2.  Created my tests for the function
 
-3.  Created my R script for `cohens_d`
+-   `use_testthat()`
+-   `use_test(cohens_d)`
 
-<!-- end list -->
-
-  - `use_r("cohens_d")`
-
-<!-- end list -->
-
-4.  Used Roxygen2 to create the documents and to export them
-
-5.  Created my tests for the function
-
-<!-- end list -->
-
-  - `use_testthat()`
-  - `use_test(cohens_d)`
-
-<!-- end list -->
-
-6.  Created a README and rendered the R markdown file to a regualr
+1.  Created a README and rendered the R markdown file to a regualr
     markdown file
 
-<!-- end list -->
+-   `use_readme_rmd`
+-   `build_readme()`
 
-  - `use_readme_rmd`
-  - `build_readme()`
+1.  created my vignettes and built it
 
-<!-- end list -->
-
-7.  created my vignettes and built it
-
-<!-- end list -->
-
-  - `use_vignette("cohens_d")`
-  - `build_vignette()`
+-   `use_vignette("cohens_d")`
+-   `build_vignette()`
 
 ## Statistical power
 
@@ -157,7 +136,7 @@ needed so that the experiment has sufficient statistical power.
 ## Acknowledgement
 
 The STAT 545B teaching team deserves a huge amount of credit for
-teaching this course so wonderfully\! Thank you to our prof [Vincenzo
+teaching this course so wonderfully! Thank you to our prof [Vincenzo
 Coia](https://vincenzocoia.com) and our wonderful TAs [Almas Khan](),
 [Diana Lin](http://www.birollab.ca/member/dlin), [Icíar Fernández
 Boyano](), and [Victor Yuan]().

@@ -81,6 +81,7 @@ Effect size is a standardized way to report the strength of an apparent relation
 ### Here are some examples of `cohens_d`:
 
 ```{r example}
+# New function!
 library(powerPsych)
 
 cohens_d(mean.one = 0, mean.two = 0.35, sd.one = 0.5, sd.two = 0.6, sd = "diff")
