@@ -17,7 +17,7 @@ analysis:
 
 1.  Effect size
 2.  Statistical power
-3.  Sample size calculator
+3.  Sample size
 
 This package was built for my STAT 545B course at the University of
 British Columbia. I built this package based
@@ -30,7 +30,7 @@ people that prefer typesetting.
 `powerPsych` is not on CRAN, you need to install it via [GitHub]():
 
 ``` r
-install.github("andr3wli/powerPsych")
+devtools::install.github("andr3wli/powerPsych")
 ```
 
 ## Effect size
@@ -61,7 +61,7 @@ Cohen’s d can be categorized as follows:
 ``` r
 library(powerPsych)
 
-cohens_d(0, 0.35, 0.5, 0.6, sd = "diff")
+cohens_d(mean.one = 0, mean.two = 0.35, sd.one = 0.5, sd.two = 0.6, sd = "diff")
 #> Cohen's d is 0.634 which is considered to be medium effect size.
 cohens_d(0, -0.35, 0.5, sd = "same")
 #> Cohen's d is 0.7 which is considered to be a relatively small effect size.
@@ -70,7 +70,7 @@ cohens_d(0, -0.35, 0.5, sd = "same")
 ### Here are some examples of `cohens_plot`:
 
 ``` r
-cohens_plot(0, 1, 0.5, 0.5)
+cohens_plot(mean.one = 0, mean.two = 1, sd.one = 0.5, sd.two = 0.5)
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
@@ -168,3 +168,27 @@ Please note that the powerPsych project is released with a [Contributor
 Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
+
+## Citations
+
+Run this command to get information about how to cite this package:
+
+``` r
+citation("powerPsych")
+#> Warning in citation("powerPsych"): no date field in DESCRIPTION file of package
+#> 'powerPsych'
+#> 
+#> To cite package 'powerPsych' in publications use:
+#> 
+#>   Andrew Li (2020). powerPsych: Effect Size and Power Toolbox for
+#>   Psychologists. R package version 0.0.0.9000.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {powerPsych: Effect Size and Power Toolbox for Psychologists},
+#>     author = {Andrew Li},
+#>     year = {2020},
+#>     note = {R package version 0.0.0.9000},
+#>   }
+```
