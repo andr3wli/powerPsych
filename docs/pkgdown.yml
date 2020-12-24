@@ -1,0 +1,8 @@
+pandoc: 2.11.2
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  cohens_d: cohens_d.html
+  cohens_plot: cohens_plot.html
+last_built: 2020-12-24T06:59Z
+
