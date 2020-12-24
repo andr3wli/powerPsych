@@ -6,14 +6,17 @@
 <!-- badges: start -->
 
 ![](https://img.shields.io/badge/AndrewLi-STAT545-green) [![Lifecycle:
-questioning](https://img.shields.io/badge/lifecycle-questioning-blue.svg)](https://www.tidyverse.org/lifecycle/#questioning)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![License:
+MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.org/web/licenses/MIT)
+![](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fandr3wli%2FpowerPsych)
 <!-- badges: end -->
 
 The goal of `powerPsych` is to provide behavioral scientists a package
 to calculate and understand effect size and power. `powerPsych` is a
 collection of statistical analysis tools, visualization, and calculator
-that are useful for research. This package is separated by three main
-analysis:
+that are useful for behavioral researchers. This package is separated by
+three main analysis:
 
 1.  Effect size
 2.  Statistical power
@@ -21,9 +24,9 @@ analysis:
 
 This package was built for my STAT 545B course at the University of
 British Columbia. I built this package based
-[this](https://www.ai-therapy.com) website’s calculations. Admittedly,
-their website is much easier to use but here I offer an alternative for
-people that prefer typesetting.
+[this](https://www.ai-therapy.com/psychology-statistics/) website’s
+calculations. Admittedly, their website is much easier to use but here I
+offer an alternative for people that prefer typesetting.
 
 ## Installation
 
@@ -59,7 +62,6 @@ Cohen’s d can be categorized as follows:
 ### Here are some examples of `cohens_d`:
 
 ``` r
-# New function!
 library(powerPsych)
 
 cohens_d(mean.one = 0, mean.two = 0.35, sd.one = 0.5, sd.two = 0.6, sd = "diff")
@@ -83,44 +85,49 @@ cohens_plot(0, 1, 0.56, 0.5, overlap = F)
 <img src="man/figures/README-unnamed-chunk-4-2.png" width="100%" />
 
 **Note:** Effect sizes are computed using the methods outlined in the
-paper ""Olejnik, S. & Algina, J. 2003. Generalized Eta and Omega Squared
+paper “Olejnik, S. & Algina, J. 2003. Generalized Eta and Omega Squared
 Statistics: Measures of Effect Size for Some Common Research Designs
-*Psychological Methods. 8:(4)434-447"*.
+*Psychological Methods. 8:(4)434-447*”.
 
 ## Workflow
 
 Here I will describe the workflow for building this package.
 
-1.  I loaded the `devtools` package and created a new package called
+-   I loaded the `devtools` package and created a new package called
     powerPsych
 
--   `devtools::create_package("powerPsych)`
+    -   `devtools::create_package("powerPsych)`
 
-1.  Initialized the package repo
+-   Initialized the package repo
 
--   `use_git()`
+    -   `use_git()`
 
-1.  Created my R script for `cohens_d`
+-   Created my R script for `cohens_d`
 
--   `use_r("cohens_d")`
+    -   `use_r("cohens_d")`
 
-1.  Used Roxygen2 to create the documents and to export them
+-   Used Roxygen2 to create the documents and to export them
 
-2.  Created my tests for the function
+-   Created my tests for the function
 
--   `use_testthat()`
--   `use_test(cohens_d)`
+    -   `use_testthat()`
+    -   `use_test(cohens_d)`
 
-1.  Created a README and rendered the R markdown file to a regualr
+-   Created a README and rendered the R markdown file to a regular
     markdown file
 
--   `use_readme_rmd`
--   `build_readme()`
+    -   `use_readme_rmd`
+    -   `build_readme()`
 
-1.  created my vignettes and built it
+-   Created my vignettes and built it
 
--   `use_vignette("cohens_d")`
--   `build_vignette()`
+    -   `use_vignette("cohens_d")`
+    -   `build_vignette()`
+
+-   Created the R package website
+
+    -   `use_pkgdown()`
+    -   `build_site()`
 
 ## Statistical power
 
@@ -148,26 +155,8 @@ Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
 
-## Citations
-
-Run this command to get information about how to cite this package:
-
-``` r
-citation("powerPsych")
-#> Warning in citation("powerPsych"): no date field in DESCRIPTION file of package
-#> 'powerPsych'
-#> 
-#> To cite package 'powerPsych' in publications use:
-#> 
-#>   Andrew Li (2020). powerPsych: Effect Size and Power Toolbox for
-#>   Psychologists. R package version 0.0.0.9000.
-#> 
-#> A BibTeX entry for LaTeX users is
-#> 
-#>   @Manual{,
-#>     title = {powerPsych: Effect Size and Power Toolbox for Psychologists},
-#>     author = {Andrew Li},
-#>     year = {2020},
-#>     note = {R package version 0.0.0.9000},
-#>   }
-```
+<!-- ## Citations -->
+<!-- Run this command to get information about how to cite this package: -->
+<!-- ```{r} -->
+<!-- citation("powerPsych") -->
+<!-- ``` -->

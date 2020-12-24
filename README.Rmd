@@ -17,7 +17,9 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 ![](https://img.shields.io/badge/AndrewLi-STAT545-green)
-[![Lifecycle: questioning](https://img.shields.io/badge/lifecycle-questioning-blue.svg)](https://www.tidyverse.org/lifecycle/#questioning)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.org/web/licenses/MIT)
+![](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fandr3wli%2FpowerPsych)
 <!-- badges: end -->
 ```{r echo = FALSE, eval = FALSE}
 library(magick)
@@ -48,13 +50,13 @@ image_read("man/figures/logo.png")
 ```
 
 
-The goal of `powerPsych` is to provide behavioral scientists a package to calculate and understand effect size and power. `powerPsych` is a collection of statistical analysis tools, visualization, and calculator that are useful for research. This package is separated by three main analysis:
+The goal of `powerPsych` is to provide behavioral scientists a package to calculate and understand effect size and power. `powerPsych` is a collection of statistical analysis tools, visualization, and calculator that are useful for behavioral researchers. This package is separated by three main analysis:
 
 1. Effect size
 2. Statistical power
 3. Sample size 
 
-This package was built for my STAT 545B course at the University of British Columbia. I built this package based [this](https://www.ai-therapy.com) website's calculations. Admittedly, their website is much easier to use but here I offer an alternative for people that prefer typesetting. 
+This package was built for my STAT 545B course at the University of British Columbia. I built this package based [this](https://www.ai-therapy.com/psychology-statistics/) website's calculations. Admittedly, their website is much easier to use but here I offer an alternative for people that prefer typesetting. 
 
 ## Installation
 
@@ -81,7 +83,6 @@ Effect size is a standardized way to report the strength of an apparent relation
 ### Here are some examples of `cohens_d`:
 
 ```{r example}
-# New function!
 library(powerPsych)
 
 cohens_d(mean.one = 0, mean.two = 0.35, sd.one = 0.5, sd.two = 0.6, sd = "diff")
@@ -94,33 +95,37 @@ cohens_plot(mean.one = 0, mean.two = 1, sd.one = 0.5, sd.two = 0.5)
 cohens_plot(0, 1, 0.56, 0.5, overlap = F)
 ```
 
-**Note:** Effect sizes are computed using the methods outlined in the paper ""Olejnik, S. & Algina, J. 2003. Generalized Eta and Omega Squared Statistics: Measures of Effect Size for Some Common Research Designs *Psychological Methods. 8:(4)434-447"*.
+**Note:** Effect sizes are computed using the methods outlined in the paper "Olejnik, S. & Algina, J. 2003. Generalized Eta and Omega Squared Statistics: Measures of Effect Size for Some Common Research Designs *Psychological Methods. 8:(4)434-447*".
 
 ## Workflow
 Here I will describe the workflow for building this package.
 
-1. I loaded the `devtools` package and created a new package called powerPsych
-* `devtools::create_package("powerPsych)`
+* I loaded the `devtools` package and created a new package called powerPsych
+  * `devtools::create_package("powerPsych)`
 
-2. Initialized the package repo
-* `use_git()`
+* Initialized the package repo
+  * `use_git()`
 
-3. Created my R script for `cohens_d`
-* `use_r("cohens_d")`
+* Created my R script for `cohens_d`
+  * `use_r("cohens_d")`
 
-4. Used Roxygen2 to create the documents and to export them
+* Used Roxygen2 to create the documents and to export them
 
-5. Created my tests for the function
-* `use_testthat()`
-* `use_test(cohens_d)`
+* Created my tests for the function
+  * `use_testthat()`
+  * `use_test(cohens_d)`
 
-6. Created a README and rendered the R markdown file to a regualr markdown file
-* `use_readme_rmd`
-* `build_readme()`
+* Created a README and rendered the R markdown file to a regular markdown file
+  * `use_readme_rmd`
+  * `build_readme()`
 
-7. created my vignettes and built it
-* `use_vignette("cohens_d")`
-* `build_vignette()`
+* Created my vignettes and built it
+  * `use_vignette("cohens_d")`
+  *  `build_vignette()`
+  
+* Created the R package website 
+  * `use_pkgdown()`
+  * `build_site()`
 
 ## Statistical power
 
@@ -137,10 +142,10 @@ The STAT 545B teaching team deserves a huge amount of credit for teaching this c
 
 Please note that the powerPsych project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
-## Citations
+<!-- ## Citations -->
 
-Run this command to get information about how to cite this package:
-```{r}
-citation("powerPsych")
-```
+<!-- Run this command to get information about how to cite this package: -->
+<!-- ```{r} -->
+<!-- citation("powerPsych") -->
+<!-- ``` -->
 

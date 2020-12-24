@@ -40,11 +40,11 @@ cohens_plot <- function(mean.one, mean.two, sd.one, sd.two, overlap = TRUE) {
       ggplot2::geom_line(size=1) +
       ggplot2::geom_line(data=df2, ggplot2::aes(color="control"),size=1) +
       ggplot2::guides(color = FALSE) +
-      ggplot2::scale_color_manual(values = c("#b2182b", "#4d4d4d")) +
+      ggplot2::scale_color_manual(values = c("#dd1c77", "#1d91c0")) +
       ggplot2::labs(x = "", y = "", title = paste("Cohen's d:", round(abs(cd), digits = 3))) +
       ggplot2::geom_vline(xintercept = mean.one, linetype="dotted") +
       ggplot2::geom_vline(xintercept = mean.two, linetype="dotted") +
-      ggplot2::geom_polygon(ggplot2::aes(color=NULL), data=poly, fill="#ef8a62", alpha=I(4/10)) +
+      ggplot2::geom_polygon(ggplot2::aes(color=NULL), data=poly, fill="#969696", alpha=I(4/10)) +
       # xlim(-7, 7)
       ggplot2::theme_void()+
       ggplot2::theme(aspect.ratio = 4/10)
@@ -56,7 +56,7 @@ cohens_plot <- function(mean.one, mean.two, sd.one, sd.two, overlap = TRUE) {
       ggplot2::geom_line(size=1) +
       ggplot2::geom_line(data=df2, ggplot2::aes(color="control"),size=1) +
       ggplot2::guides(color = FALSE) +
-      ggplot2::scale_color_manual(values = c("#b2182b", "#4d4d4d")) +
+      ggplot2::scale_color_manual(values = c("#dd1c77", "#1d91c0")) +
       ggplot2::labs(x = "", y = "", title = paste("Cohen's d:", round(abs(cd), digits = 3))) +
       ggplot2::geom_vline(xintercept = mean.one, linetype="dotted") +
       ggplot2::geom_vline(xintercept = mean.two, linetype="dotted") +
